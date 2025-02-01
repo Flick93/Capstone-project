@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Log in{% endblock title %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <h2>Log In</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-dark">Log In</button>
+        </form>
+        <div class="auth-redirect">
+            <p>Need an account?</p>
+            <a href="{% url 'signup' %}" class="btn btn-danger">Register Here</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,108 @@
+/* Add to your base.css */
+
+.hero-section {
+    background: linear-gradient(135deg, #2B2D42 0%, #8D99AE 100%);  
+    color: white;
+    padding: 4rem 2rem;
+    margin: -1rem -15px 2rem -15px;  /* Extend to full width */
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+ }
+ 
+ .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+ }
+ 
+ .hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+ }
+ 
+ .hero-text {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    opacity: 0.9;
+ }
+ 
+ /* Mobile adjustments */
+ @media(max-width: 767px) {
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+ 
+    .hero-title {
+        font-size: 2.5rem;
+    }
+ 
+    .hero-text {
+        font-size: 1rem;
+    }
+ }
+
+
+ /* Posts Preview Section */
+.posts-preview {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.posts-preview h2 {
+    color: #2B2D42;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.preview-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.preview-content {
+    padding: 1.5rem;
+}
+
+.preview-content h3 {
+    color: #2B2D42;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.preview-excerpt {
+    color: #4A4A4A;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.preview-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #8D99AE;
+    font-size: 0.9rem;
+}
+
+/* Mobile adjustments */
+@media(max-width: 767px) {
+    .preview-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,187 @@
+/* Base styles */
+body {
+    min-height: 100vh;
+    background-color: #F5F5F5;  /* Urban Explorer background */
+}
+
+/* Navbar styling */
+.navbar.bg-dark {
+    background-color: #2B2D42 !important;  /* override Bootstrap */
+}
+
+/* More specific selector to avoid !important */
+.navbar .navbar-nav .nav-link {
+    color: #8D99AE;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #EDF2F4;
+}
+
+/* Dropdown styling */
+.navbar .dropdown-menu {
+    background-color: #2B2D42;
+    border: 1px solid hsl(218, 17%, 62%);
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: #8D99AE;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #1A1B25;
+    color: #EDF2F4;
+}
+
+/* Navbar Accents */
+.navbar {
+    border-bottom: 3px solid #EF233C;
+}
+
+.nav-link:hover {
+    color: #EF233C !important;
+    transition: color 0.3s ease;
+}
+
+/* Mobile Rules */
+@media(max-width: 767px) {
+    body {
+        background-image: url('../img/undraw_world_bdnk.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 300px;
+    }
+}
+
+/* Desktop Rules */
+@media(min-width: 768px) {
+    body {
+        background-color: #EEF2F5;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+}
+
+/* Daily Tip Banner */
+.daily-tip {
+    background-color: white;
+    border-top: 3px solid #BC4749;  /* Vintage red top border */
+    border-bottom: 3px solid #BC4749;  /* Vintage red bottom border */
+    padding: 0.75rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tip-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.tip-icon {
+    font-size: 1.5rem;
+}
+
+.tip-content p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2B2D42;  /* Your Urban Explorer text color */
+}
+
+/* Mobile adjustments */
+@media(max-width: 767px) {
+    .daily-tip {
+        padding: 0.5rem 0;
+    }
+
+    .tip-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .tip-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #2B2D42;
+    color: #EDF2F4;
+    padding: 3rem 0 0 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-text {
+    color: #8D99AE;
+    text-align: left;
+}
+
+.footer-section h5 {
+    color: #EF233C;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #8D99AE;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #EF233C;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid #8D99AE;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #8D99AE;
+}
+
+/* Mobile adjustments */
+@media(max-width: 767px) {
+    .footer {
+        padding: 2rem 0 0 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-section {
+        padding: 0 1rem;
+    }
+}

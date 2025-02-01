@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <!-- Main Message/Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Make Travel Easy!</h1>
+            <p class="hero-text">Welcome to Travel Tips, where seasoned expats come together to share their hard-won insights about life abroad. Whether you're planning your first international move or you're a veteran globetrotter, our community of world travelers offers authentic, practical advice.</p>
+        </div>
+    </div>
+    <!-- Rest of Welcome Message -->
+    <p>We believe that everyone's journey is unique, but no one should have to figure it all out alone. Here, you'll find real stories, genuine tips, and a supportive community ready to help you make your next big move.</p>
+
+    <!-- Preview Section -->
+    <div class="posts-preview">
+        <h2>Latest Travel Stories</h2>
+        <div class="preview-grid">
+            {% for post in latest_posts %}
+            <div class="preview-card">
+                <div class="preview-content">
+                    <h3>{{ post.title }}</h3>
+                    <p class="preview-subtitle">{{ post.subtitle }}</p>
+                    <p class="preview-excerpt">{{ post.body|truncatewords:20 }}</p>
+                    <div class="preview-meta">
+                        <span class="author">By {{ post.author }}</span>
+                        <span class="date">{{ post.created_on|date:"F j, Y" }}</span>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No posts available yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

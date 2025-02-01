@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://bootswatch.com/5/sandstone/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reviews.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+  </head>
+<body>
+  <div class="daily-tip">
+    <div class="tip-content">
+        <span class="tip-icon">✈️</span>
+        <p>"Always keep digital copies of important documents in a secure cloud storage - it can be a lifesaver when traveling abroad."</p>
+        <span class="tip-icon">✈️</span>
+    </div>
+</div>
+  <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Travel Tips</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'about' %}">Why</a>
+                <a class="nav-link" href="{% url 'list_note' %}">Reviews</a>
+                {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'travel:map' %}">Destinations</a>
+                <a class="nav-link" href="{% url 'list' %}">Posts</a>
+                <a class="nav-link" href="{% url 'new' %}">New Post</a>
+                <a class="nav-link" href="{% url 'create_note' %}">New Review</a>
+                {% else %}
+                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                {% endif %}
+            </div>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown d-flex">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{user}}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="{% url 'draft' %}">Drafts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'archived' %}">Archived</a></li>
+                  <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <form method="POST" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <input type="submit" class="dropdown-item" value="Log Out">
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock content %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <footer class="footer">
+      <div class="footer-content">
+          <div class="footer-section">
+              <h5>About Travel Tips</h5>
+              <p class="footer-text">Helping travelers navigate the world with authentic advice and real experiences.</p>
+          </div>
+          <div class="footer-section">
+              <h5>Quick Links</h5>
+              <ul>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'about' %}">Why</a></li>
+                  <li><a href="{% url 'list_note' %}">Reviews</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a href="{% url 'travel:map' %}">Destinations</a></li>
+                  {% endif %}
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h5>Contact</h5>
+              <p class="footer-text">Email: contact@traveltips.com</p>
+              <p class="footer-text">Follow us on social media: 
+                <i class="bi bi-instagram footer-text"></i>
+                <i class="bi bi-facebook footer-text"></i>
+                <i class="bi bi-twitter-x footer-text"></i>
+                <i class="bi bi-tiktok footer-text"></i>
+              </p>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; {% now "Y" %} Travel Tips. All rights reserved.</p>
+      </div>
+  </footer>
+  </body>
+</html>
